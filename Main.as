@@ -100,6 +100,14 @@
 				tabBar.selectedIndex = 1;
 				tabBar.addEventListener(Event.CHANGE, tabsChange_Handler);
 				
+				tabsLayoutData = new AnchorLayoutData();
+				tabsLayoutData.bottom = 5;
+				tabsLayoutData.left = 5;
+				tabsLayoutData.right = 5;
+				
+				tabBar.layoutData = tabsLayoutData;
+				this.addChild(tabBar);
+				
 
 
 			atlasTexture = Texture.fromBitmap(new ATLAS_TEXTURE());
