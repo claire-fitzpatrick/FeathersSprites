@@ -22,9 +22,13 @@
 	import flash.display.BitmapData;
 	import flash.display.Bitmap;
 	import starling.display.Button;
+	import feathers.motion.transitions.ScreenFadeTransitionManager;
+	import feathers.data.ListCollection;
+	import starling.utils.AssetManager;
 
 	public class Main extends Screen
 	{
+		//Sprites
 		[Embed(source = "SpriteSheet.xml", mimeType = "application/octet-stream")]
 		public static const ATLAS_XML: Class;
 
@@ -39,6 +43,11 @@
 		protected var button: Button;
 		private var contentPanel: Panel;
 		private var buttonPanel: Panel;
+		
+		private var tabBar: TabBar;
+		private var contentPanelLayoutData: AnchorLayoutData;
+		private var tabsLayoutData: AnchorLayoutData;
+		private var assetMgr: AssetManager;
 
 		public function Main()
 		{
