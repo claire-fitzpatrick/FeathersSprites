@@ -108,6 +108,13 @@
 				tabBar.layoutData = tabsLayoutData;
 				this.addChild(tabBar);
 				
+				contentPanelLayoutData = new AnchorLayoutData();
+				contentPanelLayoutData.top = 5;
+				contentPanelLayoutData.left = 5;
+				contentPanelLayoutData.right = 5;
+				contentPanelLayoutData.bottom = 1;
+				contentPanelLayoutData.bottomAnchorDisplayObject = tabBar;
+				
 
 
 			atlasTexture = Texture.fromBitmap(new ATLAS_TEXTURE());
