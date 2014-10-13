@@ -101,6 +101,8 @@
 			this.button = new Button();
 			this.button.label = "Click Me!";
 			this.button.addEventListener(Event.TRIGGERED, button_TriggerHandle);
+			
+			this.buttonPanel.addChild(this.button);
 		}
 
 	}
