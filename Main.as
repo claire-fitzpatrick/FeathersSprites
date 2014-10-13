@@ -91,7 +91,7 @@
 			this.addChild(contentPanel);
 
 			//Getting sprite
-			bgTexture = atlas.getTexture("spriteimg_1");
+			bgTexture = atlas.getTexture("spriteimg_10000");
 
 			//ImageLoader created
 			bgImgLoader = new ImageLoader();
@@ -107,11 +107,11 @@
 			this.button.addEventListener(Event.TRIGGERED, button_TriggerHandle);
 
 			this.buttonPanel.addChild(this.button);
-
+		}
 			protected function button_TriggerHandle(event: Event): void
 			{
 				//sources changed
-				bgImgLoader.source = atlas.getTexture("spriteimg_2");
+				bgImgLoader.source = atlas.getTexture("spriteimg_20000");
 			}
 			protected function stageResized(e: Event): void
 			{
@@ -122,5 +122,3 @@
 		}
 
 	}
-
-}
