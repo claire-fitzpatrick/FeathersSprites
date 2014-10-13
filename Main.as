@@ -80,7 +80,11 @@
 			
 			this.contentPanel = new Panel();
 			
-			
+			var contentPanelLayout:AnchorLayoutData = new AnchorLayoutData();
+			contentPanelLayoutData.top = 10;
+			contentPanelLayoutData.bottom = 10;
+			contentPanelLayoutData.left = 10;
+			contentPanelLayoutData.right = 10;
 			
 			
 		}
