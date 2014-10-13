@@ -86,6 +86,9 @@
 			contentPanelLayoutData.left = 10;
 			contentPanelLayoutData.right = 10;
 			
+			contentPanelLayoutData.bottomAnchorDisplayObject = this.buttonPanel;
+			contentPanel. layoutData = contentPanelLayoutData;
+			this.addChild(contentPanel);
 			
 		}
 
