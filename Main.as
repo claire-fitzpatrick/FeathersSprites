@@ -106,7 +106,7 @@
 
 			protected function button_TriggerHandle(event: Event): void {
 				//sources changed
-				bgImgLoader.source = atlas.getTexture(("spriteimg_2");
+				bgImgLoader.source = atlas.getTexture("spriteimg_2");
 				}
 				protected function stageResized(e: Event): void {
 					this.height = this.stage.stageHeight;
