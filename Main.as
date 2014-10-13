@@ -65,6 +65,11 @@
 			
 			assetMgr.loadQueue(handleAssetsLoading);
 		}
+		
+		private function handleAssetsLoading(ratioLoaded:Number):void
+		{
+			
+		}
 
 		private function startApp(e: Event): void {
 			this.removeEventListener(FeathersEventType.INITIALIZE, initializeHandler);
