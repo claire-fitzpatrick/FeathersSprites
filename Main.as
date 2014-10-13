@@ -56,22 +56,21 @@
 
 		}
 
-		private function initializeHandler(e:Event):void 
-		{
+		private function initializeHandler(e: Event): void {
 			// constructor code
 			assetMgr = new AssetManager();
 			assetMgr.verbose = true;
 			assetMgr.enqueue(EmbeddedAssets);
-			
+
 			assetMgr.loadQueue(handleAssetsLoading);
 		}
-		
-		private function handleAssetsLoading(ratioLoaded:Number):void
-		{
-			trace ("handleAssetsLoading: " + ratioLoaded);
-			
-			if (ratioLoaded == 1)
-			{
+
+		private function handleAssetsLoading(ratioLoaded: Number): void {
+			trace("handleAssetsLoading: " + ratioLoaded);
+
+			//if the ratio is 1 assets are loaded
+			if (ratioLoaded == 1) {
+				//And start
 				startApp()
 			}
 		}
