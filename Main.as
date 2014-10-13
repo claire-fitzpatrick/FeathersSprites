@@ -63,6 +63,7 @@
 			assetMgr.verbose = true;
 			assetMgr.enqueue(EmbeddedAssets);
 			
+			assetMgr.loadQueue(handleAssetsLoading);
 		}
 
 		private function startApp(e: Event): void {
