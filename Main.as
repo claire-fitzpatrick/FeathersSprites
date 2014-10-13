@@ -68,7 +68,12 @@
 		
 		private function handleAssetsLoading(ratioLoaded:Number):void
 		{
+			trace ("handleAssetsLoading: " + ratioLoaded);
 			
+			if (ratioLoaded == 1)
+			{
+				startApp()
+			}
 		}
 
 		private function startApp(e: Event): void {
