@@ -93,7 +93,14 @@
 			//Getting sprite
 			bgTexture = atlas.getTexture("spriteimg_1");
 			
+			//ImageLoader created
 			bgImgLoader = new ImageLoader();
+			//Texture goes into ImageLoader
+			bgImgLoader.source = bgTexture;
+			bgImgLoader.width = this.stage.stageWidth;
+			bgImgLoader.maintainAspectRatio = true;
+			//bgImgLoader loaded into the contentPanel
+			contentPanel.addChild(bgImgLoader);
 		}
 
 	}
