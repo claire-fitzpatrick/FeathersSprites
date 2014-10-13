@@ -101,6 +101,8 @@
 			bgImgLoader.maintainAspectRatio = true;
 			//bgImgLoader loaded into the contentPanel
 			contentPanel.addChild(bgImgLoader);
+			
+			this.button = new Button();
 		}
 
 	}
