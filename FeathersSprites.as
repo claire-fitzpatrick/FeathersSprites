@@ -19,7 +19,7 @@
 		public function FeathersSprites()
 		{
 			// constructor code
-			this.stage.align = stageAlign.TOP_LEFT;
+			this.stage.align = StageAlign.TOP_LEFT;
 			this.stage.scaleMode = StageScaleMode.NO_SCALE;
 
 			this.stage.addEventListener(Event.RESIZE, stageResized);
@@ -28,11 +28,11 @@
 			starling = new Starling(Main, this.stage);
 			starling.start();
 		}
-	private function stageResized(e:Event):void
+		private function stageResized(e: Event): void
 		{
 			starling.stage.stageWidth = this.stage.stageWidth;
-			starling.stage.stageHeight = this.stageHeight;
-			const viewPort:Rectangle = starling.viewPort;
+			starling.stage.stageHeight = this.stage.stageHeight;
+			const viewPort: Rectangle = starling.viewPort;
 			viewPort.width = this.stage.stageWidth;
 			viewPort.height = this.stage.stageHeight;
 			starling.viewPort = viewPort;
