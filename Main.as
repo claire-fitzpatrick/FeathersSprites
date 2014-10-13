@@ -67,6 +67,20 @@
 			this.buttonPanel = new Panel();
 			
 			var buttonPanelLayoutData:AnchorLayoutData = new AnchorLayoutData();
+			buttonPanelLayoutData.left = 10;
+			buttonPanelLayoutData.right = 10;
+			buttonPanelLayoutData.bottom = 10;
+			
+			this.buttonPanel.layoutData = buttonPanelLayoutData;
+			
+			var buttonPanelLayout:HorizontalLayout = new HorizontalLayout();
+			buttonPanelLayout.horizontalAlign = HorizontalLayout.HORIZONTAL_ALIGN_CENTER;
+			this.buttonPanel.layout = buttonPanelLayout;
+			this.addChild(this.buttonPanel);
+			
+			this.contentPanel = new Panel();
+			
+			
 			
 			
 		}
