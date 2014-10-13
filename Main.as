@@ -105,6 +105,10 @@
 			this.buttonPanel.addChild(this.button);
 			
 			protected function button_TriggerHandle(event:Event):void
+			{
+				//sources changed
+				bgImgLoader.source = atlas.getTexture(("spriteimg_2");
+			}
 		}
 
 	}
