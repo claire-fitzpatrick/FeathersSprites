@@ -92,6 +92,8 @@
 			
 			//Getting sprite
 			bgTexture = atlas.getTexture("spriteimg_1");
+			
+			bgImgLoader = new ImageLoader();
 		}
 
 	}
