@@ -90,6 +90,8 @@
 			contentPanel. layoutData = contentPanelLayoutData;
 			this.addChild(contentPanel);
 			
+			//Getting sprite
+			bgTexture = atlas.getTexture("spriteimg_1");
 		}
 
 	}
