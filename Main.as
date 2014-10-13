@@ -101,22 +101,20 @@
 			this.button = new Button();
 			this.button.label = "Click Me!";
 			this.button.addEventListener(Event.TRIGGERED, button_TriggerHandle);
-			
+
 			this.buttonPanel.addChild(this.button);
-			
-			protected function button_TriggerHandle(event:Event):void
-			{
+
+			protected function button_TriggerHandle(event: Event): void {
 				//sources changed
 				bgImgLoader.source = atlas.getTexture(("spriteimg_2");
+				}
+				protected function stageResized(e: Event): void {
+					this.height = this.stage.stageHeight;
+					this.width = this.stage.stageWidth;
+					bgImgLoader.width = this.width;
+				}
 			}
-			protected function stageResized(e:Event):void
-			{
-				this.height = this.stage.stageHeight;
-				this.width = this.stage.stageWidth;
-				bgImgLoader.width = this.width;
-			}
+
 		}
 
 	}
-
-}
