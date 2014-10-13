@@ -103,6 +103,8 @@
 			this.button.addEventListener(Event.TRIGGERED, button_TriggerHandle);
 			
 			this.buttonPanel.addChild(this.button);
+			
+			protected function button_TriggerHandle(event:Event):void
 		}
 
 	}
