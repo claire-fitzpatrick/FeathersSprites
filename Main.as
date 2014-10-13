@@ -1,4 +1,5 @@
-﻿package {
+﻿package
+{
 	import starling.events.Event;
 	import starling.display.Sprite;
 
@@ -22,7 +23,8 @@
 	import flash.display.Bitmap;
 	import starling.display.Button;
 
-	public class Main extends Screen {
+	public class Main extends Screen
+	{
 		[Embed(source = "SpriteSheet.xml", mimeType = "application/octet-stream")]
 		public static const ATLAS_XML: Class;
 
@@ -38,12 +40,14 @@
 		private var contentPanel: Panel;
 		private var buttonPanel: Panel;
 
-		public function Main() {
+		public function Main()
+		{
 			// constructor code
 			super();
 			this.addEventListener(FeathersEventType.INITIALIZE, initializeHandler);
 		}
-		private function initializeHandler(e: Event): void {
+		private function initializeHandler(e: Event): void
+		{
 			this.removeEventListener(FeathersEventType.INITIALIZE, initializeHandler);
 			this.stage.addEventListener(Event.RESIZE, stageResized);
 
@@ -104,17 +108,19 @@
 
 			this.buttonPanel.addChild(this.button);
 
-			protected function button_TriggerHandle(event: Event): void {
+			protected function button_TriggerHandle(event: Event): void
+			{
 				//sources changed
 				bgImgLoader.source = atlas.getTexture("spriteimg_2");
-				}
-				protected function stageResized(e: Event): void {
-					this.height = this.stage.stageHeight;
-					this.width = this.stage.stageWidth;
-					bgImgLoader.width = this.width;
-				}
 			}
-
+			protected function stageResized(e: Event): void
+			{
+				this.height = this.stage.stageHeight;
+				this.width = this.stage.stageWidth;
+				bgImgLoader.width = this.width;
+			}
 		}
 
 	}
+
+}
