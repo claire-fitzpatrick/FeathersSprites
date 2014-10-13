@@ -1,5 +1,4 @@
-﻿package
-{
+﻿package {
 	import starling.events.Event;
 	import starling.display.Sprite;
 
@@ -25,9 +24,9 @@
 	import feathers.motion.transitions.ScreenFadeTransitionManager;
 	import feathers.data.ListCollection;
 	import starling.utils.AssetManager;
+	import flash.events.Event;
 
-	public class Main extends Screen
-	{
+	public class Main extends Screen {
 		//Sprites
 		[Embed(source = "SpriteSheet.xml", mimeType = "application/octet-stream")]
 		public static const ATLAS_XML: Class;
@@ -43,20 +42,30 @@
 		protected var button: Button;
 		private var contentPanel: Panel;
 		private var buttonPanel: Panel;
-		
+
 		private var tabBar: TabBar;
 		private var contentPanelLayoutData: AnchorLayoutData;
 		private var tabsLayoutData: AnchorLayoutData;
 		private var assetMgr: AssetManager;
 
-		public function Main()
-		{
+		public function Main() {
 			// constructor code
 			super();
 			this.addEventListener(FeathersEventType.INITIALIZE, initializeHandler);
+			this.addEventListener(FeathersEventType.INITIALIZE, startApp);
+
 		}
-		private function initializeHandler(e: Event): void
+
+		private function initializeHandler(e:Event):void 
 		{
+			// constructor code
+			assetMgr = new AssetManager();
+			assetMgr.verbose = true;
+			assetMgr.enqueue(EmbeddedAssets);
+			
+		}
+
+		private function startApp(e: Event): void {
 			this.removeEventListener(FeathersEventType.INITIALIZE, initializeHandler);
 			this.stage.addEventListener(Event.RESIZE, stageResized);
 
@@ -117,17 +126,15 @@
 
 			this.buttonPanel.addChild(this.button);
 		}
-			protected function button_TriggerHandle(event: Event): void
-			{
-				//sources changed
-				bgImgLoader.source = atlas.getTexture("spriteimg_20000");
-			}
-			protected function stageResized(e: Event): void
-			{
-				this.height = this.stage.stageHeight;
-				this.width = this.stage.stageWidth;
-				bgImgLoader.width = this.width;
-			}
+		protected function button_TriggerHandle(event: Event): void {
+			//sources changed
+			bgImgLoader.source = atlas.getTexture("spriteimg_20000");
 		}
-
+		protected function stageResized(e: Event): void {
+			this.height = this.stage.stageHeight;
+			this.width = this.stage.stageWidth;
+			bgImgLoader.width = this.width;
+		}
 	}
+
+}
