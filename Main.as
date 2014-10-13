@@ -87,6 +87,21 @@
 			this.height = this.stage.stageHeight;
 			this.width = this.stage.stageWidth;
 
+			tabBar = new TabBar();
+			tabBar.dataProvider = new ListCollection(
+				[{
+					label: "one"
+				}, {
+					label: "two"
+				}, {
+					label: "three"
+				}, ]
+			);
+				tabBar.selectedIndex = 1;
+				tabBar.addEventListener(Event.CHANGE, tabsChange_Handler);
+				
+
+
 			atlasTexture = Texture.fromBitmap(new ATLAS_TEXTURE());
 
 			var xml: XML = XML(new ATLAS_XML());
