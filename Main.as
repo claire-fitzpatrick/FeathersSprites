@@ -97,84 +97,91 @@
 					label: "three"
 				}, ]
 			);
-				tabBar.selectedIndex = 1;
-				tabBar.addEventListener(Event.CHANGE, tabsChange_Handler);
-				
-				tabsLayoutData = new AnchorLayoutData();
-				tabsLayoutData.bottom = 5;
-				tabsLayoutData.left = 5;
-				tabsLayoutData.right = 5;
-				
-				tabBar.layoutData = tabsLayoutData;
-				this.addChild(tabBar);
-				
-				contentPanelLayoutData = new AnchorLayoutData();
-				contentPanelLayoutData.top = 5;
-				contentPanelLayoutData.left = 5;
-				contentPanelLayoutData.right = 5;
-				contentPanelLayoutData.bottom = 1;
-				contentPanelLayoutData.bottomAnchorDisplayObject = tabBar;
-				
+			tabBar.selectedIndex = 1;
+			tabBar.addEventListener(Event.CHANGE, tabsChange_Handler);
 
+			tabsLayoutData = new AnchorLayoutData();
+			tabsLayoutData.bottom = 5;
+			tabsLayoutData.left = 5;
+			tabsLayoutData.right = 5;
 
-			atlasTexture = Texture.fromBitmap(new ATLAS_TEXTURE());
+			tabBar.layoutData = tabsLayoutData;
+			this.addChild(tabBar);
 
-			var xml: XML = XML(new ATLAS_XML());
-			atlas = new TextureAtlas(atlasTexture, xml);
+			contentPanelLayoutData = new AnchorLayoutData();
+			contentPanelLayoutData.top = 5;
+			contentPanelLayoutData.left = 5;
+			contentPanelLayoutData.right = 5;
+			contentPanelLayoutData.bottom = 1;
+			contentPanelLayoutData.bottomAnchorDisplayObject = tabBar;
 
-			this.buttonPanel = new Panel();
-
-			var buttonPanelLayoutData: AnchorLayoutData = new AnchorLayoutData();
-			buttonPanelLayoutData.left = 10;
-			buttonPanelLayoutData.right = 10;
-			buttonPanelLayoutData.bottom = 10;
-
-			this.buttonPanel.layoutData = buttonPanelLayoutData;
-
-			var buttonPanelLayout: HorizontalLayout = new HorizontalLayout();
-			buttonPanelLayout.horizontalAlign = HorizontalLayout.HORIZONTAL_ALIGN_CENTER;
-			this.buttonPanel.layout = buttonPanelLayout;
-			this.addChild(this.buttonPanel);
-
-			this.contentPanel = new Panel();
-
-			var contentPanelLayoutData: AnchorLayoutData = new AnchorLayoutData();
-			contentPanelLayoutData.top = 10;
-			contentPanelLayoutData.bottom = 10;
-			contentPanelLayoutData.left = 10;
-			contentPanelLayoutData.right = 10;
-
-			contentPanelLayoutData.bottomAnchorDisplayObject = this.buttonPanel;
-			contentPanel.layoutData = contentPanelLayoutData;
+			tabA = new TabA();
+			tabA.layoutData = contentPanelLayoutData;
+			tabA.setAssetManager(assetMgr);
+			this.contentPanel = tabA;
 			this.addChild(contentPanel);
-
-			//Getting sprite
-			bgTexture = atlas.getTexture("spriteimg_10000");
-
-			//ImageLoader created
-			bgImgLoader = new ImageLoader();
-			//Texture goes into ImageLoader
-			bgImgLoader.source = bgTexture;
-			bgImgLoader.width = this.stage.stageWidth;
-			bgImgLoader.maintainAspectRatio = true;
-			//bgImgLoader loaded into the contentPanel
-			contentPanel.addChild(bgImgLoader);
-
-			this.button = new Button();
-			this.button.label = "Click Me!";
-			this.button.addEventListener(Event.TRIGGERED, button_TriggerHandle);
-
-			this.buttonPanel.addChild(this.button);
 		}
-		protected function button_TriggerHandle(event: Event): void {
+
+		private function tabs_changeHandler(e: Event): void {
+			trace("selectedIndex:", tabBar.selectedIndex);
+		}
+		atlasTexture = Texture.fromBitmap(new ATLAS_TEXTURE());
+
+		var xml: XML = XML(new ATLAS_XML());
+		atlas = new TextureAtlas(atlasTexture, xml);
+
+		this.buttonPanel = new Panel();
+
+		var buttonPanelLayoutData: AnchorLayoutData = new AnchorLayoutData();
+		buttonPanelLayoutData.left = 10;
+		buttonPanelLayoutData.right = 10;
+		buttonPanelLayoutData.bottom = 10;
+
+		this.buttonPanel.layoutData = buttonPanelLayoutData;
+
+		var buttonPanelLayout: HorizontalLayout = new HorizontalLayout();
+		buttonPanelLayout.horizontalAlign = HorizontalLayout.HORIZONTAL_ALIGN_CENTER;
+		this.buttonPanel.layout = buttonPanelLayout;
+		this.addChild(this.buttonPanel);
+
+		this.contentPanel = new Panel();
+
+		var contentPanelLayoutData: AnchorLayoutData = new AnchorLayoutData();
+		contentPanelLayoutData.top = 10;
+		contentPanelLayoutData.bottom = 10;
+		contentPanelLayoutData.left = 10;
+		contentPanelLayoutData.right = 10;
+
+		contentPanelLayoutData.bottomAnchorDisplayObject = this.buttonPanel;
+		contentPanel.layoutData = contentPanelLayoutData;
+		this.addChild(contentPanel);
+
+		//Getting sprite
+		bgTexture = atlas.getTexture("spriteimg_10000");
+
+		//ImageLoader created
+		bgImgLoader = new ImageLoader();
+		//Texture goes into ImageLoader
+		bgImgLoader.source = bgTexture;
+		bgImgLoader.width = this.stage.stageWidth;
+		bgImgLoader.maintainAspectRatio = true;
+		//bgImgLoader loaded into the contentPanel
+		contentPanel.addChild(bgImgLoader);
+
+		this.button = new Button();
+		this.button.label = "Click Me!";
+		this.button.addEventListener(Event.TRIGGERED, button_TriggerHandle);
+
+		this.buttonPanel.addChild(this.button);
+	    }
+		function button_TriggerHandle(event: Event): void {
 			//sources changed
 			bgImgLoader.source = atlas.getTexture("spriteimg_20000");
 		}
-		protected function stageResized(e: Event): void {
+		function stageResized(e: Event): void {
 			this.height = this.stage.stageHeight;
 			this.width = this.stage.stageWidth;
 			bgImgLoader.width = this.width;
 		}
 	}
-
 }
